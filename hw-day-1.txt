@@ -1,0 +1,6 @@
+typescriptlang.org
+es6-features.org
+calculator assignment
+Array methods
+    forEach, map, reduce, filter
+
