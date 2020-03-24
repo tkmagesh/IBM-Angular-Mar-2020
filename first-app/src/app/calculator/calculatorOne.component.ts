@@ -15,7 +15,20 @@ import { CalculatorModel } from './calculatorModel';
         <input type="button" value="Subtract" (click)="onSubtractClick()">
         <input type="button" value="Multiply" (click)="onMultiplyClick()">
         <input type="button" value="Divide" (click)="onDivideClick()">
-        <div [ngClass]="{positive : model.result >= 0, negative : model.result < 0}">
+
+        <!-- 
+        <div *ngIf="model.result > 0; then resultRef else noResultRef"></div> 
+        <ng-template #resultRef>
+            <div [ngClass]="{positive : model.result >= 0, negative : model.result < 0}">
+                {{model.result}}
+            </div>
+        </ng-template>
+        <ng-template #noResultRef>
+            <div>No Result!!</div>
+        </ng-template> 
+        -->
+
+        <div *ngIf="model.result !== 0" [ngClass]="{positive : model.result >= 0, negative : model.result < 0}">
             {{model.result}}
         </div>
     `,

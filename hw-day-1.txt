@@ -4,3 +4,7 @@ calculator assignment
 Array methods
     forEach, map, reduce, filter
 
+
+Day-2
+    go through the documentation for directives, pipes
+
