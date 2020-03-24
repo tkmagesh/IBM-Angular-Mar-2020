@@ -15,7 +15,9 @@ import { CalculatorModel } from './calculatorModel';
         <input type="button" value="Subtract" (click)="onSubtractClick()">
         <input type="button" value="Multiply" (click)="onMultiplyClick()">
         <input type="button" value="Divide" (click)="onDivideClick()">
-        <div>{{model.result}}</div>
+        <div [ngClass]="{positive : model.result >= 0, negative : model.result < 0}">
+            {{model.result}}
+        </div>
     `,
     providers : [ 
         CalculatorModel

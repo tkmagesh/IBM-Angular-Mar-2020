@@ -7,14 +7,14 @@ import { CalculatorModel } from "./calculatorModel";
         <hr>
         <input type="number" (input)="model.n1 = $event.target.valueAsNumber" />
         <!-- <select (change)="selectOperator=$event.target.value"> -->
-        <select #selectOperator>
+        <select #selectOperatorRef>
             <option value="add">Add</option>
             <option value="subtract">Subtract</option>
             <option value="multiply">Multiply</option>
             <option value="divide">Divide</option>
         </select>
         <input type="number" (input)="model.n2 = $event.target.valueAsNumber">
-        <input type="button" value="Calculate" (click)="model[selectOperator.value]()">
+        <input type="button" value="Calculate" (click)="model[selectOperatorRef.value]()">
         <div>{{model.result}}</div>
 
     `,
