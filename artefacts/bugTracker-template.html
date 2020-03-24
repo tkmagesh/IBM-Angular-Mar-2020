@@ -15,6 +15,24 @@
         (done) 7. Improvise the bug display
         (done) 8. Sort the bugs
         9. Persist the bugs in the localStorage
+            window.localStorage
+            =====
+                * key/value store
+                * key has to be unique
+                    (use the bug.id as the key)
+                * key & value must be strings
+                    (use JSON.stringify & JSON.parse for serialization and deserialization)
+                * ~ 10 MB storage limit
+                * Same Origin Policy
+                * APIs
+                =====
+                    - setItem(key, value)
+                    - getItem(key) => value
+                    - removeItem(key)
+                    - key(index) => key at index
+                    - clear()
+                    - length
+
         10. Display 'createdAt' for each bug
         11. Persist the bugs in the server
         12. Make the buys accessible using unique urls
