@@ -16,11 +16,23 @@ import { CalculatorModel } from './calculatorModel';
         <input type="button" value="Multiply" (click)="onMultiplyClick()">
         <input type="button" value="Divide" (click)="onDivideClick()">
         <div>{{model.result}}</div>
-    `
+    `,
+    providers : [ 
+        CalculatorModel
+    ]
 })
 export class CalculatorOneComponent{
     
-    model : CalculatorModel = new CalculatorModel();
+    /* 
+    model : CalculatorModel ;
+    constructor(model : CalculatorModel){
+        this.model = model;
+    } 
+    */
+
+    constructor(public model : CalculatorModel){
+
+    }
 
     onAddClick(){
         this.model.add()
