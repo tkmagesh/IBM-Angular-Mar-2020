@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     selector : 'app-calculator-result',
     template : `
         <div *ngIf="data !== 0; else noResultRef" [ngClass]="{positive : data >= 0, negative : data < 0}">
-            {{data}}
+            {{data | currency:'INR'}}
         </div>
         <ng-template #noResultRef>
             <div>
