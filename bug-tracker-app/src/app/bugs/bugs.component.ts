@@ -8,6 +8,7 @@ import { BugOperationsService } from './services/bugOperations.service';
 })
 export class BugsComponent{
     bugsList : Bug[] = [];
+    trimTextLength : number = 30;
     
     constructor(private bugOperations : BugOperationsService){
 

@@ -18,6 +18,8 @@
     <input type="button" value="Add New" (click)="onAddNewClick(txtNewBugName.value)">
 </section>
 <section class="list">
+    <input type="range" min="10" max="100" value="30" (input)="trimTextLength=$event.target.value" />
+    <span> [{{trimTextLength}}] </span>
     <ol>
         <li *ngFor="let bug of bugsList">
             <span 
@@ -25,7 +27,7 @@
                 (click)="onBugNameClick(bug)"
                 [ngClass]="{closed : bug.isClosed}"
             >
-                {{bug.name | trimText}}
+                {{bug.name | trimText:trimTextLength}}
             </span>
             <div class="datetime">{{bug.createdAt}}</div>
             <input type="button" value="Remove" (click)="onRemoveClick(bug)">
