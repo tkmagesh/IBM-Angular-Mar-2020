@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { GreeterComponent } from  './greeter/greeter.component';
 import { CalculatorOneComponent } from './calculator/calculatorOne.component';
 import { CalculatorTwoComponent  } from "./calculator/calculatorTwo.component";
+import { CalculatorResultComponent } from "./calculator/calculatorResult.component";
 import { CalculatorModel } from './calculator/calculatorModel';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { CalculatorModel } from './calculator/calculatorModel';
     , GreeterComponent
     , CalculatorOneComponent
     , CalculatorTwoComponent
+    , CalculatorResultComponent
   ],
   imports: [
     BrowserModule

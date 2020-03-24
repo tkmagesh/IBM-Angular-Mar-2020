@@ -15,7 +15,7 @@ import { CalculatorModel } from "./calculatorModel";
         </select>
         <input type="number" (input)="model.n2 = $event.target.valueAsNumber">
         <input type="button" value="Calculate" (click)="model[selectOperatorRef.value]()">
-        <div>{{model.result}}</div>
+        <app-calculator-result [data]="model.result"></app-calculator-result>
 
     `,
     providers : [

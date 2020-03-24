@@ -28,9 +28,13 @@ import { CalculatorModel } from './calculatorModel';
         </ng-template> 
         -->
 
-        <div *ngIf="model.result !== 0" [ngClass]="{positive : model.result >= 0, negative : model.result < 0}">
+       <!--
+         <div *ngIf="model.result !== 0" [ngClass]="{positive : model.result >= 0, negative : model.result < 0}">
             {{model.result}}
-        </div>
+        </div> 
+        -->
+
+        <app-calculator-result [data]="model.result"></app-calculator-result>
     `,
     providers : [ 
         CalculatorModel
