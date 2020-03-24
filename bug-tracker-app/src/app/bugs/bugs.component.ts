@@ -9,9 +9,14 @@ import { BugOperationsService } from './services/bugOperations.service';
 export class BugsComponent{
     bugsList : Bug[] = [];
     trimTextLength : number = 30;
+    bugSortAttr : string = 'id';
+    bugSortDesc : boolean = false;
     
     constructor(private bugOperations : BugOperationsService){
-
+        this.bugsList.push({ id: 1, name: 'Server communication failure', isClosed: true, createdAt: new Date()})
+        this.bugsList.push({ id: 4, name: 'Application not responding', isClosed: true, createdAt: new Date() })
+        this.bugsList.push({ id: 2, name: 'Data integrity checks filed', isClosed: false, createdAt: new Date() })
+        this.bugsList.push({ id: 3, name: 'User actions not recognized', isClosed: false, createdAt: new Date() })
     }
     onAddNewClick(newBugName: string){
         const newBug : Bug = this.bugOperations.createNew(newBugName);
