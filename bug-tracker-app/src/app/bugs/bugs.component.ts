@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
-
-interface Bug{
-    id : number,
-    name : string,
-    isClosed : boolean,
-    createdAt : Date
-};
+import { Bug } from "./models/Bug";
+import { BugOperationsService } from './services/bugOperations.service';
 
 @Component({
     selector : 'app-bugs',
@@ -13,18 +8,28 @@ interface Bug{
 })
 export class BugsComponent{
     bugsList : Bug[] = [];
-    private currentBugId : number = 0;
+    
+    constructor(private bugOperations : BugOperationsService){
 
+    }
     onAddNewClick(newBugName: string){
-        const newBug : Bug = {
-            id : ++this.currentBugId,
-            name : newBugName,
-            isClosed : false,
-            createdAt : new Date()
-        };
+        const newBug : Bug = this.bugOperations.createNew(newBugName);
         this.bugsList.push(newBug);
     }
+
     onBugNameClick(bugToToggle : Bug){
-        bugToToggle.isClosed = !bugToToggle.isClosed;
+        this.bugOperations.toggle(bugToToggle);
+    }
+
+    onRemoveClick(bugToRemove : Bug){
+        this.bugsList.splice(this.bugsList.indexOf(bugToRemove), 1);
+    }
+
+    onRemoveClosedClick(){
+        this.bugsList = this.bugsList.filter(bug => !bug.isClosed);
+    }
+
+    getClosedCount(){
+        return this.bugsList.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
     }
 }
