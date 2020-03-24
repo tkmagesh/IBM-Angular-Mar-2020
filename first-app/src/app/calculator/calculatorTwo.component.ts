@@ -6,14 +6,15 @@ import { CalculatorModel } from "./calculatorModel";
         <h1>Calculator-Two</h1>
         <hr>
         <input type="number" (input)="model.n1 = $event.target.valueAsNumber" />
-        <select (change)="selectOperator=$event.target.value">
+        <!-- <select (change)="selectOperator=$event.target.value"> -->
+        <select #selectOperator>
             <option value="add">Add</option>
             <option value="subtract">Subtract</option>
             <option value="multiply">Multiply</option>
             <option value="divide">Divide</option>
         </select>
         <input type="number" (input)="model.n2 = $event.target.valueAsNumber">
-        <input type="button" value="Calculate" (click)="onCalculateClick()">
+        <input type="button" value="Calculate" (click)="model[selectOperator.value]()">
         <div>{{model.result}}</div>
 
     `,
@@ -22,14 +23,14 @@ import { CalculatorModel } from "./calculatorModel";
     ]
 })
 export class CalculatorTwoComponent{
-    selectOperator : string = 'add';
+    //selectOperator : string = 'add';
 
     constructor(public model : CalculatorModel){
 
     }
 
-    onCalculateClick(){
-        switch (this.selectOperator) {
+    /* onCalculateClick(){
+         switch (this.selectOperator) {
             case 'add':
                 this.model.add();
                 break;
@@ -46,5 +47,7 @@ export class CalculatorTwoComponent{
             default:
                 break;
         }
-    }
+
+        //this.model[this.selectOperator]();
+    } */
 }
