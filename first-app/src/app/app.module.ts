@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { GreeterComponent } from  './greeter/greeter.component';
@@ -20,6 +21,7 @@ import { ProductsComponent } from './products/products.component';
   ],
   imports: [
     BrowserModule
+    , HttpClient
   ],
   providers: [
     CalculatorModel
