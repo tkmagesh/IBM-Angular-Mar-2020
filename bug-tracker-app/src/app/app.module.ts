@@ -10,11 +10,13 @@ import { TrimTextPipe } from './bugs/pipes/trimText.pipe';
 import { SortPipe } from './bugs/pipes/sort.pipe';
 
 import { ClosedCountPipe } from './bugs/pipes/closedCount.pipe';
+import { BugStatsComponent } from './bugs/views/bugStats.component';
 
 @NgModule({
   declarations: [
     AppComponent
     , BugsComponent
+    , BugStatsComponent
     , ClosedCountPipe
     , TrimTextPipe
     , SortPipe
