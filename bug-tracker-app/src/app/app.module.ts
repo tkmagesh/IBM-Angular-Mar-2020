@@ -9,11 +9,13 @@ import { BugStorageService } from './bugs/services/bugStorage.service';
 import { TrimTextPipe } from './bugs/pipes/trimText.pipe';
 import { SortPipe } from './bugs/pipes/sort.pipe';
 
+import { ClosedCountPipe } from './bugs/pipes/closedCount.pipe';
 
 @NgModule({
   declarations: [
     AppComponent
     , BugsComponent
+    , ClosedCountPipe
     , TrimTextPipe
     , SortPipe
   ],

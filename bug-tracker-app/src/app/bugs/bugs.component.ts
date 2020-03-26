@@ -12,22 +12,26 @@ export class BugsComponent{
     trimTextLength : number = 30;
     bugSortAttr : string = 'id';
     bugSortDesc : boolean = false;
+    newBugName : string = '';
 
     constructor(private bugOperations : BugOperationsService){
        this.bugsList = this.bugOperations.getAll();
     }
     onAddNewClick(newBugName: string){
         const newBug : Bug = this.bugOperations.createNew(newBugName);
-        this.bugsList.push(newBug);
+        //this.bugsList.push(newBug);
+        this.bugsList = [ ...this.bugsList, newBug ];
     }
 
     onBugNameClick(bugToToggle : Bug){
-        this.bugOperations.toggle(bugToToggle);
+        const toggledBug : Bug = this.bugOperations.toggle(bugToToggle);
+        this.bugsList = this.bugsList.map(bug => bug.id === toggledBug.id ? toggledBug : bug);
     }
 
     onRemoveClick(bugToRemove : Bug){
         this.bugOperations.remove(bugToRemove);
-        this.bugsList.splice(this.bugsList.indexOf(bugToRemove), 1);
+        //this.bugsList.splice(this.bugsList.indexOf(bugToRemove), 1);
+        this.bugsList = this.bugsList.filter(bug => bug.id !== bugToRemove.id);
     }
 
     onRemoveClosedClick(){
@@ -38,7 +42,8 @@ export class BugsComponent{
             .forEach(closedBug => this.onRemoveClick(closedBug));
     }
 
-    getClosedCount(){
+    /* getClosedCount(){
+        console.log('getClosedCount triggered');
         return this.bugsList.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
-    }
+    } */
 }
