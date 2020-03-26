@@ -1,5 +1,20 @@
 {
-  "bugs": [],
+  "bugs": [
+    {
+      "id": 1,
+      "name": "User actions not recognized",
+      "isClosed": false,
+      "createdAt": "2020-03-26T11:53:43.744Z",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquam id pariatur ipsa expedita nesciunt doloribus facilis architecto quisquam totam veniam odio, minima, labore deleniti, neque nam quia amet eveniet."
+    },
+    {
+      "id": 2,
+      "name": "Server communication failure",
+      "isClosed": false,
+      "createdAt": "2020-03-26T11:53:58.989Z",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquam id pariatur ipsa expedita nesciunt doloribus facilis architecto quisquam totam veniam odio, minima, labore deleniti, neque nam quia amet eveniet."
+    }
+  ],
   "projects": [
     {
       "id": 1,
