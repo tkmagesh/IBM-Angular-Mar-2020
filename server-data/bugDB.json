@@ -1,0 +1,26 @@
+{
+  "bugs": [
+    {
+      "id": 5,
+      "name": "Server communication failure",
+      "isClosed": true,
+      "createdAt": "2020-03-06T10:35:43.839Z"
+    },
+    {
+      "id": 6,
+      "name": "User actions not recognized",
+      "isClosed": false,
+      "createdAt": "2020-03-10T10:35:43.839Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Bug Tracker"
+    },
+    {
+      "id": 2,
+      "name": "Payroll Master"
+    }
+  ]
+}
