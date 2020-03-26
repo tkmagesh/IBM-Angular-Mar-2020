@@ -14,10 +14,7 @@ export class BugsComponent{
     bugSortDesc : boolean = false;
 
     constructor(private bugOperations : BugOperationsService){
-        /* this.bugsList.push({ id: 1, name: 'Server communication failure', isClosed: true, createdAt: new Date()})
-        this.bugsList.push({ id: 4, name: 'Application not responding', isClosed: true, createdAt: new Date() })
-        this.bugsList.push({ id: 2, name: 'Data integrity checks filed', isClosed: false, createdAt: new Date() })
-        this.bugsList.push({ id: 3, name: 'User actions not recognized', isClosed: false, createdAt: new Date() }) */
+       this.bugsList = this.bugOperations.getAll();
     }
     onAddNewClick(newBugName: string){
         const newBug : Bug = this.bugOperations.createNew(newBugName);
@@ -29,11 +26,16 @@ export class BugsComponent{
     }
 
     onRemoveClick(bugToRemove : Bug){
+        this.bugOperations.remove(bugToRemove);
         this.bugsList.splice(this.bugsList.indexOf(bugToRemove), 1);
     }
 
     onRemoveClosedClick(){
-        this.bugsList = this.bugsList.filter(bug => !bug.isClosed);
+        /* this.bugsList = this.bugsList.filter(bug => !bug.isClosed); */
+        this
+            .bugsList
+            .filter(bug => bug.isClosed)
+            .forEach(closedBug => this.onRemoveClick(closedBug));
     }
 
     getClosedCount(){

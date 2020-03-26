@@ -4,9 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BugsComponent } from "./bugs/bugs.component";
 import { BugOperationsService } from './bugs/services/bugOperations.service';
+import { BugStorageService } from './bugs/services/bugStorage.service';
 
 import { TrimTextPipe } from './bugs/pipes/trimText.pipe';
 import { SortPipe } from './bugs/pipes/sort.pipe';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { SortPipe } from './bugs/pipes/sort.pipe';
   ],
   providers: [
     BugOperationsService
+    , BugStorageService
   ],
   bootstrap: [AppComponent]
 })
