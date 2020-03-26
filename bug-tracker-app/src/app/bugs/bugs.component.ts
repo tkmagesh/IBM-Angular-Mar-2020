@@ -12,15 +12,14 @@ export class BugsComponent{
     trimTextLength : number = 30;
     bugSortAttr : string = 'id';
     bugSortDesc : boolean = false;
-    newBugName : string = '';
+    
 
     constructor(private bugOperations : BugOperationsService){
        this.bugsList = this.bugOperations.getAll();
     }
-    onAddNewClick(newBugName: string){
-        const newBug : Bug = this.bugOperations.createNew(newBugName);
-        //this.bugsList.push(newBug);
-        this.bugsList = [ ...this.bugsList, newBug ];
+    
+    onNewBugAdded(newBug : Bug){
+        this.bugsList = [...this.bugsList, newBug];
     }
 
     onBugNameClick(bugToToggle : Bug){
